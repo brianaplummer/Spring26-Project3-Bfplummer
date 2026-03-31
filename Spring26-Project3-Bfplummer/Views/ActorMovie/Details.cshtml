@@ -1,0 +1,14 @@
+﻿@model Spring26_Project3_Bfplummer.Models.ActorMovie
+
+@{
+    ViewData["Title"] = "Relationship Details";
+}
+
+<h1>Relationship Details</h1>
+
+<div>
+    <p><strong>Actor:</strong> @Model.Actor?.Name</p>
+    <p><strong>Movie:</strong> @Model.Movie?.Title</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

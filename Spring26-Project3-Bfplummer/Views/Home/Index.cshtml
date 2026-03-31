@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Movie and Actor Manager</h1>
+    <p>Manage movies, actors, and their relationships. View AI generated movie reviews and actor tweets with sentiment analysis.</p>
+
+    <div class="mt-4">
+        <a asp-controller="Movie" asp-action="Index" class="btn btn-primary m-2">Movies</a>
+        <a asp-controller="Actor" asp-action="Index" class="btn btn-success m-2">Actors</a>
+        <a asp-controller="ActorMovie" asp-action="Index" class="btn btn-dark m-2">Actor Movie Relationships</a>
+    </div>
+</div>

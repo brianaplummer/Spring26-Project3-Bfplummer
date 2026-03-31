@@ -1,0 +1,49 @@
+﻿@model Spring26_Project3_Bfplummer.Models.ViewModels.MovieDetailsViewModel
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<h1>@Model.Movie?.Title</h1>
+
+@if (Model.Movie != null)
+{
+    <p><strong>Genre:</strong> @Model.Movie.Genre</p>
+    <p><strong>Release Year:</strong> @Model.Movie.Release_Year</p>
+    <p>
+        <strong>IMDB:</strong>
+        <a href="@Model.Movie.IMDB_Link" target="_blank">View IMDB</a>
+    </p>
+
+    <img asp-controller="Movie" asp-action="Photo" asp-route-id="@Model.Movie.Id" width="250" class="mb-3" />
+}
+
+<h3>Actors in this Movie</h3>
+<ul>
+    @foreach (var actor in Model.Actors)
+    {
+        <li>@actor.Name</li>
+    }
+</ul>
+
+<h3>Average Overall Sentiment: @Model.OverAllSentiment.ToString("0.000")</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>AI Review</th>
+            <th>Sentiment</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.MovieReviews.Length; i++)
+        {
+            <tr>
+                <td>@Model.MovieReviews[i]</td>
+                <td>@Model.ReviewSentiments[i].ToString("0.000")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

@@ -1,0 +1,46 @@
+﻿@model Spring26_Project3_Bfplummer.Models.Movie
+
+@{
+    ViewData["Title"] = "Create Movie";
+}
+
+<h1>Create Movie</h1>
+
+<form asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group mb-2">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="IMDB_Link" class="control-label"></label>
+        <input asp-for="IMDB_Link" class="form-control" />
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="Genre" class="control-label"></label>
+        <input asp-for="Genre" class="form-control" />
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="Release_Year" class="control-label"></label>
+        <input asp-for="Release_Year" class="form-control" />
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="PhotoFile" class="control-label"></label>
+        <input asp-for="PhotoFile" type="file" class="form-control" />
+    </div>
+
+    <div class="form-group mt-3">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
